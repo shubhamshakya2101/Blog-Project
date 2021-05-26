@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
+const port = process.env.PORT || 8000;
 
 const homeStartingContent = "Having a hard time coming up with great blog post ideas? Constantly thinking of new blog post topics can be a daunting task. Rather than putting together a list of generic blog post ideas, we felt it would be far more useful to share with you the process of brainstorming blog post ideas.Write those ideas down, and you’ll have months worth of blog post topics to write about without ever having to think, “What am I going to write about today?”.";
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
@@ -74,7 +75,10 @@ app.get("/contact", function(req, res){
   res.render("contact", {contactContent: contactContent});
 });
 
+app.listen(port , () => {
+  console.log(`server is running on port ${port}`);
+})
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
-});
+// app.listen(3000, function() {
+//   console.log("Server started on port 3000");
+// });
